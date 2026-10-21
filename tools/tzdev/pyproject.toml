@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tzdev"
+version = "0.1.0"
+description = "Sign, install, run and debug Samsung Tizen TV web apps without Tizen Studio"
+requires-python = ">=3.11"
+dependencies = ["cryptography"]
+
+[project.optional-dependencies]
+# Tests also need the xmlsec1 binary on PATH.
+test = ["pytest"]
+
+[project.scripts]
+tzdev = "tzdev.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
